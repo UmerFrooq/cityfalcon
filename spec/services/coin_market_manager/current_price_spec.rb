@@ -13,7 +13,6 @@ RSpec.describe CoinMarketManager::CurrentPrice do
   it "should give bad request 400 " do
     VCR.use_cassette "btc/symbol_missing" do
       response = CoinMarketManager::CurrentPrice.call("", "USD")
-      byebug
       expect(response.status).to eql("400")
     end
   end
