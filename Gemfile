@@ -51,6 +51,10 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # RSpec testing framework to Ruby on Rails as a drop-in alternative to its default testing framework, Minitest.
+  gem 'rspec-rails', '~> 6.0.0'
+  # factory_bot is a fixtures replacement with a straightforward definition syntax, support for multiple build strategies
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -69,4 +73,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+
+  #Database Cleaner is a set of gems containing strategies for cleaning your database in Ruby.
+  gem 'database_cleaner-active_record'
+  # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners to test common Rails functionality that, if written by hand, would be much longer, more complex, and error-prone
+  gem 'shoulda-matchers', '~> 5.0'
 end
