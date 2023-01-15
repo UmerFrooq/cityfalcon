@@ -55,7 +55,12 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
   # factory_bot is a fixtures replacement with a straightforward definition syntax, support for multiple build strategies
   gem "factory_bot_rails"
+  # Faker gem use to generate fake data for seed and test cases 
   gem 'faker'
+  # Byebug use for debugging purpose
+  gem 'byebug'
+  # load ENV Variables from .env file
+  gem 'dotenv-rails'
 end
 
 group :development do
