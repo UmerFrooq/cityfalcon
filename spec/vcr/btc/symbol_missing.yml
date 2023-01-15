@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?convert=USD&symbol=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/json
+      X-Cmc-Pro-Api-Key:
+      - "<COIN_MARKET_API_KEY>"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '153'
+      Connection:
+      - keep-alive
+      Date:
+      - Sun, 15 Jan 2023 22:29:24 GMT
+      Server:
+      - Tengine
+      Cache-Control:
+      - no-cache
+      Vary:
+      - origin
+      X-Envoy-Decorator-Operation:
+      - coinmarketcap-pro-apis.cmc-api.svc.cluster.local:80/*
+      X-Envoy-Upstream-Service-Time:
+      - '3'
+      X-Traefik-Route:
+      - coinmarketcap-pro-apis
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Referrer-Policy:
+      - origin-when-cross-origin
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 be3fa018dd746152af21b683b61f0906.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - MCT50-P1
+      X-Amz-Cf-Id:
+      - yZqFjBJO0aNz54d9snSW9wqXtucxgaXeu-0r2wUrHRAnyFauEuyIbA==
+    body:
+      encoding: UTF-8
+      string: '{"status":{"timestamp":"2023-01-15T22:29:24.312Z","error_code":400,"error_message":"\"symbol\"
+        is not allowed to be empty","elapsed":0,"credit_count":0}}'
+    http_version:
+  recorded_at: Sun, 15 Jan 2023 22:29:24 GMT
+recorded_with: VCR 3.0.3
