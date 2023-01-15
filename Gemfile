@@ -55,7 +55,12 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
   # factory_bot is a fixtures replacement with a straightforward definition syntax, support for multiple build strategies
   gem "factory_bot_rails"
+  # Faker gem use to generate fake data for seed and test cases 
   gem 'faker'
+  # Byebug use for debugging purpose
+  gem 'byebug'
+  # load ENV Variables from .env file
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -79,4 +84,10 @@ group :test do
   gem 'database_cleaner-active_record'
   # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners to test common Rails functionality that, if written by hand, would be much longer, more complex, and error-prone
   gem 'shoulda-matchers', '~> 5.0'
+
+  # VCR Record test suite's HTTP interactions and replay them during future test runs for fast deterministic, accurate tests
+  gem 'vcr', '~> 3.0', '>= 3.0.1'
+  # WebMock allows stubbing HTTP requests and setting expectations on HTTP requests
+  gem 'webmock', '~> 3.18', '>= 3.18.1'
+  
 end
