@@ -8,6 +8,8 @@ module NetworkHelper
   def do_request(type:, endpoint:, **body)
     request_payload, http = initialize_request(type, endpoint, body)
     response = http.request(request_payload)
+    raise StandardError unless response.code == '200'
+
     JSON.parse(response.body)
   rescue StandardError => e
     if response.present?
