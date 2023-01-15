@@ -55,6 +55,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
   # factory_bot is a fixtures replacement with a straightforward definition syntax, support for multiple build strategies
   gem "factory_bot_rails"
+  gem 'faker'
 end
 
 group :development do
