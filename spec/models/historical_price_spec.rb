@@ -7,5 +7,8 @@ RSpec.describe HistoricalPrice, type: :model do
       it { should validate_presence_of(att.to_sym) }
       it { should validate_numericality_of(att.to_sym) }
     end
+
+    it {should validate_presence_of(:close_date)}
+    it { should validate_uniqueness_of(:close_date)}
   end
 end

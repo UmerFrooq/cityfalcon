@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_230254) do
     t.decimal "low", precision: 15, scale: 4
     t.decimal "close", precision: 15, scale: 4
     t.bigint "volume"
+    t.date "close_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
