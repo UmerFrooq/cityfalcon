@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ #candle_sticks {
+  width: 100%;
+  height: 535px;
+  color: white;
+}
+
