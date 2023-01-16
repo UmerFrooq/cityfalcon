@@ -8,14 +8,11 @@
 
 histoical_prices = []
 (1..365).each do |i|
- histoical_prices <<  HistoricalPrice.new(
-  open: Faker::Number.positive,
-  high: Faker::Number.positive,
-  close: Faker::Number.positive,
-  low: Faker::Number.positive,
-  volume: Faker::Number.number(digits: 10) ,
-  close_date:( Date.today - i)
- )
+  histoical_prices << HistoricalPrice.new(
+    close: Faker::Number.positive,
+    volume: Faker::Number.number(digits: 10),
+    close_time: i.day.ago
+  )
 end
 
 HistoricalPrice.import histoical_prices

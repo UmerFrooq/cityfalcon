@@ -6,8 +6,7 @@ class HistoricalPricesController < ApplicationController
   end
 
   def history
-    @prices = HistoricalPrice.where("close_date >= ? AND close_date <= ?", 1.years.ago.to_date, Date.today)
-
+    @prices = HistoricalPrice.where("close_time >= ? AND close_time <= ?", 1.years.ago, DateTime.now).order(close_time: :desc)
   end
 
   private

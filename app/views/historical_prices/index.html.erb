@@ -1,4 +1,11 @@
 
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+max-width: 100%
+}
+</style>
 <h1>BTC current price: $<%= number_with_precision(@latest_price&.close, precision: 2)%><h1>
 <div>
   <label for="">FROM</label>
@@ -13,8 +20,9 @@
   <button id="b1y" class="btn">1Y</button>
   <button id="bytd" class="btn">YTD</button>
 </div>
-<div id="candle_sticks"></div>
-<%= render partial: 'candle_stick_chart_js' %>
+<div id="chartdiv"></div>
+
+<%= render partial: 'line_chart_js' %>
 <script>
   $.ajax({
     beforeSend: function(){
@@ -30,6 +38,6 @@
     type: "get", 
     data: $(this).serialize()
   }).done(function(data){
-    candle_chart(data, "candle_sticks");
+    line_chart(data, "candle_sticks");
   });
 </script>
