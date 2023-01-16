@@ -1,0 +1,35 @@
+
+<h1>BTC current price: $<%= number_with_precision(@latest_price&.close, precision: 2)%><h1>
+<div>
+  <label for="">FROM</label>
+   <input type="date" class="form-control" id="tofield">
+  <label for="">TO</label>
+  
+  <input type="date" class="form-control" id="fromfield"> 
+
+  <button id="b1m" class="btn">1m</button>
+  <button id="b3m" class="btn">3m</button>
+  <button id="b6m" class="btn">6m</button>
+  <button id="b1y" class="btn">1Y</button>
+  <button id="bytd" class="btn">YTD</button>
+</div>
+<div id="candle_sticks"></div>
+<%= render partial: 'candle_stick_chart_js' %>
+<script>
+  $.ajax({
+    beforeSend: function(){
+      $("#spiner").show();
+      $("#price_chart").hide();
+    },
+    complete: function(){
+      $("#spiner").hide();
+      $("#price_chart").show();
+    },
+    url:"/historical_prices/history",
+    dataType: "json",
+    type: "get", 
+    data: $(this).serialize()
+  }).done(function(data){
+    candle_chart(data, "candle_sticks");
+  });
+</script>
