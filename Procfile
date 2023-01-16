@@ -1,2 +1,2 @@
 web: bundle exec rails s
-worker: bundle exec sidekiq
+worker1: bundle exec sidekiq -q default
