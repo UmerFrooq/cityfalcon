@@ -1,0 +1,3 @@
+latest_price_job:
+  cron: '* * * * *'
+  class: "LatestPriceJob"

@@ -1,8 +1,5 @@
 json.array!(@prices) do |price|
-  json.date price.close_date
-  json.close price.close
-  json.open price.open
-  json.high price.high
-  json.low price.low
+  json.close_time price.close_time
+  json.close price.close.to_f
   json.volume price.volume
 end
