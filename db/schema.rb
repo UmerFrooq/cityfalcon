@@ -15,9 +15,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_230254) do
   enable_extension "plpgsql"
 
   create_table "historical_prices", force: :cascade do |t|
-    t.decimal "close", precision: 15, scale: 4
-    t.bigint "volume"
-    t.datetime "close_time"
+    t.date "price_date"
+    t.jsonb "price_hash", default: {}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

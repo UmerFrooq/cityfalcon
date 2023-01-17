@@ -1,43 +1,17 @@
+<h1>BTC current price: $<%= number_with_precision(@latest_price&.last_close_value, precision: 2)%><h1>
 
-<style>
-#chartdiv {
-  width: 100%;
-  height: 500px;
-max-width: 100%
-}
-</style>
-<h1>BTC current price: $<%= number_with_precision(@latest_price&.close, precision: 2)%><h1>
 <div>
   <label for="">FROM</label>
-   <input type="date" class="form-control" id="tofield">
+   <input type="date" class="form-control" id="fromfield" value=<%=last_week_date%> >
   <label for="">TO</label>
+  <input type="date" class="form-control" id="tofield" value=<%=today_date%>> 
+  <button  class="btn graphJS" value="by_date">YTD</button>
+  <button  class="btn graphJS" value="by_hour">1 hour</button>
+  <button  class="btn graphJS" value="one_day">1 day</button>
+  <button  class="btn graphJS" value="week">1 week</button>
+  <button  class="btn graphJS" value="month">1 month</button>
+  <button  class="btn graphJS" value="year">1 year</button>
   
-  <input type="date" class="form-control" id="fromfield"> 
-
-  <button id="b1m" class="btn">1m</button>
-  <button id="b3m" class="btn">3m</button>
-  <button id="b6m" class="btn">6m</button>
-  <button id="b1y" class="btn">1Y</button>
-  <button id="bytd" class="btn">YTD</button>
 </div>
-<div id="chartdiv"></div>
-
+<canvas id="myChart"></canvas>
 <%= render partial: 'line_chart_js' %>
-<script>
-  $.ajax({
-    beforeSend: function(){
-      $("#spiner").show();
-      $("#price_chart").hide();
-    },
-    complete: function(){
-      $("#spiner").hide();
-      $("#price_chart").show();
-    },
-    url:"/historical_prices/history",
-    dataType: "json",
-    type: "get", 
-    data: $(this).serialize()
-  }).done(function(data){
-    line_chart(data, "candle_sticks");
-  });
-</script>

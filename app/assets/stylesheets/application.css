@@ -14,9 +14,8 @@
  *= require_self
  */
 
- #candle_sticks {
+ #chartdiv {
   width: 100%;
-  height: 535px;
-  color: white;
+  height: 500px;
 }
 

@@ -29,7 +29,7 @@ module CoinMarketManager
           convert: currency
         }
       )
-      
+
      raise StandardError.new(api_response.dig(:error)) if api_response.dig(:status) != nil
     end
   end

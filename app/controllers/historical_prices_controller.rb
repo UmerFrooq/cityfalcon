@@ -1,17 +1,19 @@
 class HistoricalPricesController < ApplicationController
+  include PricesConcern
+
   before_action :forced_json, only: %i[history]
 
   def index
-    @latest_price = HistoricalPrice.last
+    @latest_price = HistoricalPrice.first
   end
 
   def history
-    @prices = HistoricalPrice.where("close_time >= ? AND close_time <= ?", 1.years.ago, DateTime.now).order(close_time: :desc)
+    render json: fetch_prices(params)
   end
 
   private
 
-  def forced_json
-		request.format = :json
-	end
+    def forced_json
+      request.format = :json
+    end
 end
