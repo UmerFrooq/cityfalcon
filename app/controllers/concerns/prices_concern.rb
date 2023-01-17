@@ -9,7 +9,7 @@ module PricesConcern
 
     return date_and_close_values(prices_by_type(type, params)) if %i[year month week by_date ].include?(type)
     return close_value_by_datetime(HistoricalPrice.yesterday) if type == :one_day
-    return close_value_by_last_hour(HistoricalPrice.first) if type == :by_hour
+    return close_value_by_last_hour(HistoricalPrice.today) if type == :by_hour
 
   end
 

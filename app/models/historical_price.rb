@@ -13,4 +13,8 @@ class HistoricalPrice < ApplicationRecord
   def self.yesterday
     find_by(price_date: 1.day.ago.to_date)
   end
+
+  def self.today
+    find_by(price_date: Date.today)
+  end
 end

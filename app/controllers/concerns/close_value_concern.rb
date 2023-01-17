@@ -23,6 +23,8 @@ module CloseValueConcern
   end
 
   def close_value_by_last_hour(historical_price)
+    return [[],[]]if historical_price.nil?
+
     current_time = DateTime.now
     previous_hour = current_time.hour - 1
 
